@@ -43,6 +43,10 @@ dependencyManagement {
     imports {
         mavenBom "org.springframework.grpc:spring-grpc-dependencies:$springGrpcVersion"
     }
+    dependencies {
+        dependency 'com.google.protobuf:protobuf-java:4.34.0'
+        dependency 'com.google.protobuf:protobuf-java-util:4.34.0'
+    }
 }
 
 protobuf {
