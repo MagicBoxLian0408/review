@@ -41,8 +41,8 @@ public class ReviewQueryController {
 
     @GetMapping
     public ResponseEntity<List<ReviewResponse>> getReviewsByTarget(
-            @RequestParam Long targetId,
-            @RequestParam ReviewTargetType targetType
+            @RequestParam("target_id") Long targetId,
+            @RequestParam("target_type") ReviewTargetType targetType
     ) {
         List<ReviewResponse> responses = getReviewsByTargetUseCase.getReviewsByTarget(
                 GetReviewsByTargetQuery.of(targetId, targetType)
