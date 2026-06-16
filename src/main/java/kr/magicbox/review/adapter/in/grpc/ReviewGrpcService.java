@@ -46,10 +46,10 @@ public class ReviewGrpcService extends ReviewServiceGrpc.ReviewServiceImplBase {
         List<Review> reviews = getReviewsByUserIdUseCase.getReviewsByUserId(
                 GetReviewsByUserIdQuery.of(UserId.of(request.getUserId()))
         ).stream()
-                .map(review -> Review.newBuilder()
-                        .setReviewId(review.getId().value())
-                        .setContent(review.getContent())
-                        .setCreatedAt(toTimestamp(review.getCreatedAt()))
+                .map(result -> Review.newBuilder()
+                        .setReviewId(result.reviewId())
+                        .setContent(result.content())
+                        .setCreatedAt(toTimestamp(result.createdAt()))
                         .build())
                 .toList();
 

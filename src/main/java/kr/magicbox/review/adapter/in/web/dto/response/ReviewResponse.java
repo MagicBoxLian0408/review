@@ -9,7 +9,7 @@ import java.time.Instant;
 @Builder
 public record ReviewResponse(
         Long reviewId,
-        Long userId,
+        UserInfo user,
         Long creatorId,
         Long targetId,
         ReviewTargetType targetType,
@@ -19,10 +19,16 @@ public record ReviewResponse(
         Instant createdAt,
         Instant updatedAt
 ) {
+    @Builder
+    public record UserInfo(Long id, String nickname) {}
+
     public static ReviewResponse from(ReviewResult result) {
         return ReviewResponse.builder()
                 .reviewId(result.reviewId())
-                .userId(result.userId())
+                .user(UserInfo.builder()
+                        .id(result.userId())
+                        .nickname(result.userNickname())
+                        .build())
                 .creatorId(result.creatorId())
                 .targetId(result.targetId())
                 .targetType(result.targetType())

@@ -15,4 +15,9 @@ spring:
   grpc:
     server:
       port: ${GRPC_SERVER_PORT}
+    client:
+      channels:
+        user:
+          address: ${USER_SERVICE_URL}
+          negotiation-type: plaintext
 
