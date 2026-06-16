@@ -1,10 +1,10 @@
 package kr.magicbox.review.application.port.in;
 
 import kr.magicbox.review.application.dto.query.GetReviewsByTargetQuery;
-import kr.magicbox.review.domain.aggregate.Review;
+import kr.magicbox.review.application.dto.result.ReviewResult;
 
 import java.util.List;
 
 public interface GetReviewsByTargetUseCase {
-    List<Review> getReviewsByTarget(GetReviewsByTargetQuery query);
+    List<ReviewResult> getReviewsByTarget(GetReviewsByTargetQuery query);
 }

@@ -10,6 +10,7 @@ import java.time.Instant;
 public record ReviewResult(
         Long reviewId,
         Long userId,
+        String userNickname,
         Long creatorId,
         Long targetId,
         ReviewTargetType targetType,
@@ -23,6 +24,22 @@ public record ReviewResult(
         return ReviewResult.builder()
                 .reviewId(review.getId().value())
                 .userId(review.getUserId().value())
+                .creatorId(review.getCreatorId().value())
+                .targetId(review.getTargetId())
+                .targetType(review.getTargetType())
+                .orderId(review.getOrderId().value())
+                .rating(review.getRating())
+                .content(review.getContent())
+                .createdAt(review.getCreatedAt())
+                .updatedAt(review.getUpdatedAt())
+                .build();
+    }
+
+    public static ReviewResult from(Review review, String userNickname) {
+        return ReviewResult.builder()
+                .reviewId(review.getId().value())
+                .userId(review.getUserId().value())
+                .userNickname(userNickname)
                 .creatorId(review.getCreatorId().value())
                 .targetId(review.getTargetId())
                 .targetType(review.getTargetType())
