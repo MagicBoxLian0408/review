@@ -19,9 +19,6 @@ public record ReviewResponse(
         Instant createdAt,
         Instant updatedAt
 ) {
-    @Builder
-    public record UserInfo(Long id, String nickname) {}
-
     public static ReviewResponse from(ReviewResult result) {
         return ReviewResponse.builder()
                 .reviewId(result.reviewId())
