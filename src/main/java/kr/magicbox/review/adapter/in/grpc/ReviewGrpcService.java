@@ -35,7 +35,7 @@ public class ReviewGrpcService extends ReviewServiceGrpc.ReviewServiceImplBase {
         );
 
         responseObserver.onNext(GetReviewRatingResponse.newBuilder()
-                .setRating(rating)
+                .setAverageRating(rating)
                 .build());
         responseObserver.onCompleted();
     }
